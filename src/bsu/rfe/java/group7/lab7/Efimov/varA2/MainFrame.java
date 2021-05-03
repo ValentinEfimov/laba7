@@ -22,6 +22,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import java.util.regex.Pattern;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
@@ -36,6 +37,10 @@ public class MainFrame extends JFrame {
     private static final int MEDIUM_GAP = 10;
     private static final int LARGE_GAP = 15;
     private static final int SERVER_PORT = 4567;
+    // Регулярное выражение для валидации адреса
+    private static final String  IP_Adres = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\" +
+            ".([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+            "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
     private final JTextField textFieldFrom;
     private final JTextField textFieldTo;
     private final JTextArea textAreaIncoming;
@@ -180,6 +185,12 @@ public class MainFrame extends JFrame {
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(this,
                         "Введите текст сообщения", "Ошибка",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (Pattern.matches(IP_Adres,destinationAddress) == false){
+                JOptionPane.showMessageDialog(this,
+                        "Неправильно введён IP", "Ошибка",
                         JOptionPane.ERROR_MESSAGE);
                 return;
             }
