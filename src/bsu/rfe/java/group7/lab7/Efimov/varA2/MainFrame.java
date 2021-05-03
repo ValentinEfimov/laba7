@@ -37,14 +37,17 @@ public class MainFrame extends JFrame {
     private static final int MEDIUM_GAP = 10;
     private static final int LARGE_GAP = 15;
     private static final int SERVER_PORT = 4567;
-    // Регулярное выражение для валидации адреса
-    private static final String  IP_Adres = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\" +
-            ".([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
-            "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+
+
+
     private final JTextField textFieldFrom;
     private final JTextField textFieldTo;
     private final JTextArea textAreaIncoming;
     private final JTextArea textAreaOutgoing;
+    // Регулярное выражение для валидации адреса
+    private static final String  IP_Adres = "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\" +
+            ".([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+            "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
     public MainFrame() {
         super(FRAME_TITLE);
         setMinimumSize(
